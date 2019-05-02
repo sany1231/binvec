@@ -58,7 +58,7 @@ vec_sum_bin(PG_FUNCTION_ARGS)
   for (c = 0; c <= 31; c++)
   {
     k = rhsNum & (1<<c);
-    retContent[c] = lhsContent[c] + k;
+    retContent[c] = DatumeGetInt32(lhsContent[c]) + k;
   }
 
   dims[0] = lhsLength;
