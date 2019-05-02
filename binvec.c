@@ -1,11 +1,3 @@
-<?php
-
-/*
- * https://github.com/pjungwir/floatvec/blob/master/vec_add.c
- * /opt/postgres10/10.0/share/extension/aggs_for_vecs.control
- * CREATE EXTENSION NEEXISTUJUCA;
- */
-
 #include "postgres.h"
 #include "fmgr.h"
 #include "utils/array.h"
@@ -77,5 +69,3 @@ vec_sum_bin(PG_FUNCTION_ARGS)
   PG_RETURN_ARRAYTYPE_P(retArray);
   
 }
-  
-?>
