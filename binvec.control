@@ -1,0 +1,4 @@
+comment = 'Sum arrays from bin'
+default_version = '0.1'
+module_pathname = '$libdir/binvec'
+relocatable = true
