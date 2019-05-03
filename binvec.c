@@ -1,10 +1,10 @@
-#define PGPATH "/opt/postgres10/10.0/include/server";
+#define PGPATH "/opt/postgres10/10.0/include/server/";
 
-#include PGPATH "/postgres.h"
-#include PGPATH "/fmgr.h"
-#include PGPATH "/utils/array.h"
-#include PGPATH "/catalog/pg_type.h"
-#include PGPATH "/utils/lsyscache.h"
+#include combine(PGPATH,"postgres.h");
+#include combine(PGPATH,"fmgr.h");
+#include combine(PGPATH,"utils/array.h");
+#include combine(PGPATH,"catalog/pg_type.h");
+#include combine(PGPATH,"utils/lsyscache.h");
 
 #ifdef PG_MODULE_MAGIC
 PG_MODULE_MAGIC;
