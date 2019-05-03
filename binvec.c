@@ -1,9 +1,8 @@
-#include "postgres.h"
-#include "fmgr.h"
-#include "utils/array.h"
-#include "catalog/pg_type.h"
-#include "utils/lsyscache.h"
-#include "math.h"
+#include "/opt/postgres95/9.5.4/include/server/postgres.h"
+#include "/opt/postgres95/9.5.4/include/server/fmgr.h"
+#include "/opt/postgres95/9.5.4/include/server/utils/array.h"
+#include "/opt/postgres95/9.5.4/include/server/catalog/pg_type.h"
+#include "/opt/postgres95/9.5.4/include/server/utils/lsyscache.h"
 
 #ifdef PG_MODULE_MAGIC
 PG_MODULE_MAGIC;
