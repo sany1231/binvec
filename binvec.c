@@ -17,7 +17,7 @@ vec_sum_bin(PG_FUNCTION_ARGS)
   int16 elemTypeWidth;
   bool elemTypeByValue;
   char elemTypeAlignmentCode;
-  int lhsLength, c;
+  int lhsLength, c, n;
   int32 rhsNum, k;
   ArrayType *lhsArray, *retArray;
   Datum *lhsContent, *retContent;
@@ -36,7 +36,7 @@ vec_sum_bin(PG_FUNCTION_ARGS)
     PG_RETURN_NULL();
   }
   if (ARR_NDIM(lhsArray) > 1) {
-    ereport(ERROR, (errmsg("vec_add: one-dimensional arrays are required")));
+    ereport(ERROR, (errmsg("one-dimensional arrays are required")));
   }
 
   elemTypeId = ARR_ELEMTYPE(lhsArray);
@@ -49,15 +49,21 @@ vec_sum_bin(PG_FUNCTION_ARGS)
 
   deconstruct_array(lhsArray, elemTypeId, elemTypeWidth, elemTypeByValue, elemTypeAlignmentCode, &lhsContent, &lhsNulls, &lhsLength);
 
+  lhsLength = 32;
+  
   retContent = palloc0(sizeof(Datum) * lhsLength);
   retNulls = palloc0(sizeof(bool) * lhsLength);
   
   for (c = 0; c <= 31; c++)
   {
     k = rhsNum & (1<<c);
-    if(k>0) k = 1;
-    else k = 0;
-    retContent[c] = DatumGetInt32(lhsContent[c]) + k;
+    if(k>0) n = 1;
+    else n = 0;
+    if(lhsContent[c]){
+        retContent[c] = DatumGetInt32(lhsContent[c]) + n; 
+    }else{
+        retContent[c] = n;
+    }
   }
 
   dims[0] = lhsLength;
