@@ -1,8 +1,10 @@
-#include "/opt/postgres95/9.5.4/include/server/postgres.h"
-#include "/opt/postgres95/9.5.4/include/server/fmgr.h"
-#include "/opt/postgres95/9.5.4/include/server/utils/array.h"
-#include "/opt/postgres95/9.5.4/include/server/catalog/pg_type.h"
-#include "/opt/postgres95/9.5.4/include/server/utils/lsyscache.h"
+#define PGPATH "/opt/postgres10/10.0/include/server";
+
+#include PGPATH "/postgres.h"
+#include PGPATH "/fmgr.h"
+#include PGPATH "/utils/array.h"
+#include PGPATH "/catalog/pg_type.h"
+#include PGPATH "/utils/lsyscache.h"
 
 #ifdef PG_MODULE_MAGIC
 PG_MODULE_MAGIC;
