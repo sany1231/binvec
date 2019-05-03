@@ -1,5 +1,3 @@
-#define CPATH "/opt/postgres10/10.0/include/server/"
-
 #include "postgres.h"
 #include "fmgr.h"
 #include "utils/array.h"
