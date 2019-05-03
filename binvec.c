@@ -35,6 +35,9 @@ vec_sum_bin(PG_FUNCTION_ARGS)
   if (ARR_NDIM(lhsArray) == 0) {
     PG_RETURN_NULL();
   }
+  if(!rhsNum || rhsNum==null){
+    rhsNum = 0;
+  }
   if (ARR_NDIM(lhsArray) > 1) {
     ereport(ERROR, (errmsg("one-dimensional arrays are required")));
   }
