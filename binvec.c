@@ -25,7 +25,7 @@ vec_sum_bin(PG_FUNCTION_ARGS)
   int dims[1];
   int lbs[1];
 
-  if (PG_ARGISNULL(0) || PG_ARGISNULL(1)) {
+  if (PG_ARGISNULL(0)) {
     PG_RETURN_NULL();
   }
 
@@ -35,8 +35,8 @@ vec_sum_bin(PG_FUNCTION_ARGS)
   if (ARR_NDIM(lhsArray) == 0) {
     PG_RETURN_NULL();
   }
-  if(!rhsNum || rhsNum==null){
-    rhsNum = 0;
+  if(!rhsNum){
+    PG_RETURN_ARRAYTYPE_P(lhsArray);    
   }
   if (ARR_NDIM(lhsArray) > 1) {
     ereport(ERROR, (errmsg("one-dimensional arrays are required")));
