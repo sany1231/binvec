@@ -7,7 +7,7 @@ BASH
     cp binvec.so /opt/postgres95/9.5.9/lib/
     
     cp binvec.control /opt/postgres95/9.5.9/share/extension/
-    cp binvec--0.1.sql /opt/postgres95/9.5.9/hare/extension/
+    cp binvec--0.1.sql /opt/postgres95/9.5.9/share/extension/
 
 SQL
 
