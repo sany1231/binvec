@@ -40,11 +40,7 @@ vec_sum_bin(PG_FUNCTION_ARGS)
 
   elemTypeId = ARR_ELEMTYPE(lhsArray);
 
-  if (elemTypeId != INT2OID &&
-      elemTypeId != INT4OID &&
-      elemTypeId != INT8OID &&
-      elemTypeId != FLOAT4OID &&
-      elemTypeId != FLOAT8OID) {
+  if (elemTypeId != INT2OID && elemTypeId != INT4OID && elemTypeId != INT8OID && elemTypeId != FLOAT4OID && elemTypeId != FLOAT8OID) {
     ereport(ERROR, (errmsg("vec_add input must be array of SMALLINT, INTEGER, BIGINT, REAL, or DOUBLE PRECISION")));
   }
 
@@ -58,6 +54,8 @@ vec_sum_bin(PG_FUNCTION_ARGS)
   for (c = 0; c <= 31; c++)
   {
     k = rhsNum & (1<<c);
+    if(k>0) k = 1;
+    else k = 0;
     retContent[c] = DatumGetInt32(lhsContent[c]) + k;
   }
 
