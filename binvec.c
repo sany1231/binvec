@@ -17,7 +17,7 @@ vec_sum_bin(PG_FUNCTION_ARGS)
   int16 elemTypeWidth;
   bool elemTypeByValue;
   char elemTypeAlignmentCode;
-  int lhsLength, c, n;
+  int lhsLength, lhsLengthOrg, c, n;
   int32 rhsNum, k;
   ArrayType *lhsArray, *retArray;
   Datum *lhsContent, *retContent;
@@ -47,8 +47,8 @@ vec_sum_bin(PG_FUNCTION_ARGS)
 
   get_typlenbyvalalign(elemTypeId, &elemTypeWidth, &elemTypeByValue, &elemTypeAlignmentCode);
 
-  deconstruct_array(lhsArray, elemTypeId, elemTypeWidth, elemTypeByValue, elemTypeAlignmentCode, &lhsContent, &lhsNulls, &lhsLength);
-
+  deconstruct_array(lhsArray, elemTypeId, elemTypeWidth, elemTypeByValue, elemTypeAlignmentCode, &lhsContent, &lhsNulls, &lhsLengthOrg);
+  
   lhsLength = 32;
   
   retContent = palloc0(sizeof(Datum) * lhsLength);
@@ -56,10 +56,10 @@ vec_sum_bin(PG_FUNCTION_ARGS)
   
   for (c = 0; c <= 31; c++)
   {
-    k = rhsNum & (1<<c);
+    k = (rhsNum & (1<<c));
     if(k>0) n = 1;
     else n = 0;
-    if(lhsContent[c]){
+    if(c<lhsLengthOrg){
         retContent[c] = DatumGetInt32(lhsContent[c]) + n; 
     }else{
         retContent[c] = n;
