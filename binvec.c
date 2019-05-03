@@ -1,8 +1,10 @@
-#include "/opt/postgres10/10.0/include/server/postgres.h"
-#include "/opt/postgres10/10.0/include/server/fmgr.h"
-#include "/opt/postgres10/10.0/include/server/utils/array.h"
-#include "/opt/postgres10/10.0/include/server/catalog/pg_type.h"
-#include "/opt/postgres10/10.0/include/server/utils/lsyscache.h"
+#define CPATH "/opt/postgres10/10.0/include/server/"
+
+#include "postgres.h"
+#include "fmgr.h"
+#include "utils/array.h"
+#include "catalog/pg_type.h"
+#include "utils/lsyscache.h"
 
 #ifdef PG_MODULE_MAGIC
 PG_MODULE_MAGIC;
