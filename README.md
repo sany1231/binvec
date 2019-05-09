@@ -13,9 +13,9 @@ Every bit is read like this:
     Int k = (rhsNum & (1<<c));
     
 where **rhsNum** is binary representation number *(123 = 0111 1011)*.
-where **c** is bit position you want to check if is set. 1 is moved every loop by one position to the left so in next turn we are checking if rhsNum is containing number 2, next for 4,8,16,...
+where **c** is bit position you want to check if it is set. every loop 1 is moved by one position to the left so in the next turn we are checking if rhsNum is contains number 2, next for 4,8,16,...
 
-!! Output array is length of 32 so loop checking max 32 bits.
+!! The length of output array is 32 so loop checks max 32 bits.
 
 Sumary of input array and checked number looks like this:
 
@@ -25,7 +25,7 @@ Sumary of input array and checked number looks like this:
     
 **retContent** is output array.
 **lhsContent** is input array.
-We are doing some checink if **k** is > 1 becouse we want just add +1 to existing value in **lhsContent** on **c** position.
+We are doing some checking if **k** is > 1 becouse we want just add +1 to existing value in **lhsContent** on **c** position.
 
 ## Implementation
 
