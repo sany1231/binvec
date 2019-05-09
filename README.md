@@ -1,18 +1,18 @@
 # binvec
 
-BINVEC is C extension for postgreSQL.
+BINVEC is C extension for postgrSQL.
 
 Purpouse of this extension is to sum array input with integer input (representing binary values) into one summary array.
 Why not just SQL function ? Becouse C extensons are much faster than SQL functions, if you are working with grate amount of data 3x faster function can save a lot of time.
 
 ## Example
 
-Binary integer 123 in plain bit representation looks like 0111 1011.
+Binary integer 123 in plain bit representation looks like 0111 1011.  
 Every bit is read like this:
 
     Int k = (rhsNum & (1<<c));
     
-where **rhsNum** is binary representation number *(123 = 0111 1011)*.
+where **rhsNum** is binary representation number *(123 = 0111 1011)*.  
 where **c** is bit position you want to check if it is set. every loop 1 is moved by one position to the left so in the next turn we are checking if rhsNum contains number 2, next for 4,8,16,...
 
 !! The length of output array is 32 so loop checks max 32 bits.
@@ -23,8 +23,8 @@ Summary of input array and checked number looks like this:
     else n = 0;
     retContent[c] = DatumGetInt32(lhsContent[c]) + n; 
     
-**retContent** is output array.
-**lhsContent** is input array.
+**retContent** is output array.  
+**lhsContent** is input array.  
 We are doing some checking if **k** is > 1 becouse we want just add +1 to existing value in **lhsContent** on **c** position.
 
 ## Implementation
