@@ -65,13 +65,13 @@ One thing is create extansoion, but when we want to use that extension in real l
     
 ## Test
 
-extension test
+### Extension test
 
     SELECT vec_sum_bin(ARRAY[1,0,1,0,1,0],123);
 
 Should returns {2,1,1,1,2,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}
 
-aggregate test
+### Aggregate test
 
     SELECT bin2vec32(some_column) FROM some_table;
     
