@@ -38,13 +38,13 @@ BASH
     # compile binvec.c to object
     cc -fPIC -c binvec.c -I #PATH#/include/server
     
-    # create .so lib file
+    # create .so file
     cc -shared -o binvec.so binvec.o
     
-    # copy .so into lib direcotry
+    # copy .so into lib directory
     cp binvec.so #PATH#/lib/
     
-    # copy control and sql files
+    # copy control and sql files into share extension directory
     cp binvec.control #PATH#/share/extension/
     cp binvec--0.1.sql #PATH#/share/extension/
     
