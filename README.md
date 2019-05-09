@@ -75,6 +75,6 @@ aggregate test
 
     SELECT bin2vec32(some_column) FROM some_table;
     
-Should returns similar value, depends on what inputs you will be useing
+Should returns similar value, depends on what inputs you will be useing, but schema will be same.
 
 ! ENJOY
