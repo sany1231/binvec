@@ -2,7 +2,7 @@
 
 BINVEC is C extension for postgreSQL.
 
-Purpouse of this extansion is to sum array input with integer input (representing binary values) into one summary array.
+Purpouse of this extension is to sum array input with integer input (representing binary values) into one summary array.
 Why not just SQL function ? Becouse C extensons are much faster than SQL functions, if you are working with grate amount of data 3x faster function can save a lot of time.
 
 ## Example
@@ -13,11 +13,11 @@ Every bit is read like this:
     Int k = (rhsNum & (1<<c));
     
 where **rhsNum** is binary representation number *(123 = 0111 1011)*.
-where **c** is bit position you want to check if it is set. every loop 1 is moved by one position to the left so in the next turn we are checking if rhsNum is contains number 2, next for 4,8,16,...
+where **c** is bit position you want to check if it is set. every loop 1 is moved by one position to the left so in the next turn we are checking if rhsNum contains number 2, next for 4,8,16,...
 
 !! The length of output array is 32 so loop checks max 32 bits.
 
-Sumary of input array and checked number looks like this:
+Summary of input array and checked number looks like this:
 
     if(k>0) n = 1;
     else n = 0;
@@ -65,6 +65,6 @@ SQL
 
     SELECT vec_sum_bin(ARRAY[1,0,1,0,1,0],123);
 
-should return {2,1,1,1,2,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}
+Should returns {2,1,1,1,2,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}
 
 ! ENJOY
