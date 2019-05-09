@@ -30,7 +30,7 @@ We are doing some checking if **k** is > 1 becouse we want just add +1 to existi
 ## Implementation
 
 1. Download GIT repository
-2. Find path to your sql instalation and replace #PATH# with your path e.g.(/opt/postgres95/9.5.9), there is a trick to find out what is your path. Execute SQL query  CREATE EXTENSION some_non_created_extansion;  this query will return error with path to your SQL instalation, but it is harmless.
+2. Find path to your sql instalation and replace #PATH# with your path e.g.(/opt/postgres95/9.5.9), there is a trick to find out what is your path. Execute SQL query **CREATE EXTENSION some_non_created_extansion**, this query will return error with path to your SQL instalation, but it is harmless.
 3. Run bash commands from binvec folder.
 
 BASH
